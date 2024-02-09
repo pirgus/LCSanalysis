@@ -62,15 +62,15 @@ int main(int argc, char **argv){
 
     std::cout << "Calculating LCS value... \n"; 
 
-    const auto start{std::chrono::steady_clock::now()};
+    const auto start{std::chrono::high_resolution_clock::now()};
     int lcs_value = LCS(s1, s2, s1.size(), s2.size());
-    const auto end{std::chrono::steady_clock::now()};
+    const auto end{std::chrono::high_resolution_clock::now()};
 
-    auto total_time = start - end;
+    auto total_time_ns = std::chrono::duration_cast<std::chrono::seconds>(end-start);
 
     std::cout << "done \n";
     std::cout << "LCS value is " << lcs_value << "\n";
-    std::cout << "Time for processing the function: " << std::chrono::seconds(total_time).count() << "\n";
+    std::cout << "Time for processing the function): " << total_time_ns.count() << "\n";
     input_file.close();
     return 0;
 }
