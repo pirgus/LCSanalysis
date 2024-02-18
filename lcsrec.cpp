@@ -38,29 +38,31 @@ int main(int argc, char **argv){
     }
 
     std::cout << "done \n";
-    std::cout << "Creating substrings... \n";
-
-    //creating the substrings
-    std::vector<char> s1(chars.begin(), chars.begin() + string_size);
-    std::vector<char> s2(chars.begin() + string_size, chars.end());
-
-    std::cout << "done \n";
-
-    std::cout << "Calculating LCS value... \n"; 
 
 
-    const auto start{std::chrono::high_resolution_clock::now()};
-    int lcs_value = LCS(s1, s2, s1.size(), s2.size());
-    const auto end{std::chrono::high_resolution_clock::now()};
+    for(int i = 0; i < 5; i++){
+        // std::cout << "Creating substrings... \n";
 
-    auto total_time_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start );
+        //creating the substrings
+        std::vector<char> s1(chars.begin(), chars.begin() + string_size);
+        std::vector<char> s2(chars.begin() + string_size, chars.end());
 
+        // std::cout << "done \n";
 
+        // std::cout << "Calculating LCS value... \n"; 
+        const auto start{std::chrono::high_resolution_clock::now()};
+        int lcs_value = LCS(s1, s2, s1.size(), s2.size());
+        const auto end{std::chrono::high_resolution_clock::now()};
 
-    std::cout << "done \n";
-    std::cout << "LCS value is " << lcs_value << "\n";
-    std::cout << "Time for processing the function: " << total_time_ns.count() << "\n";
+        auto total_time_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start );
 
+        // std::cout << "done \n";
+        // std::cout << "LCS value is " << lcs_value << "\n";
+        // std::cout << "Time for processing the function: " << total_time_ns.count() << " ns\n";
+        std::cout <<total_time_ns.count()/1000000.0 << "\n";
+
+    }
+    
     input_file.close();
 
     return 0;
