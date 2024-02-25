@@ -34,7 +34,8 @@ int LCS(std::vector<char>& string_1,std::vector<char>& string_2,
 
 int main(int argc, char **argv){
 
-    std::string file_name = "entries/Strings" + std::string(argv[1]) + ".txt";
+    // std::string file_name = "entries/Strings" + std::string(argv[1]) + ".txt";
+    std::string file_name = "entries/Strings" + std::string(argv[1]) + "M.txt";
     std::ifstream input_file(file_name);
     int string_size = atoi(argv[1]);
 
